@@ -1,0 +1,31 @@
+<h1>Your measurements</h1>
+
+<a href="/measurements/new">Add new measurement</a>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Bodyweight (kg)</th>
+      <th>Waist (cm)</th>
+      <th>Notes</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% measurements.forEach(m => { %>
+      <tr>
+        <td><%= m.measurement_date.toISOString().slice(0,10) %></td>
+        <td><%= m.bodyweight_kg %></td>
+        <td><%= m.waist_cm || '-' %></td>
+        <td><%= m.notes || '' %></td>
+        <td>
+          <a href="/measurements/<%= m.id %>/edit">Edit</a>
+          <form action="/measurements/<%= m.id %>/delete" method="POST" style="display:inline">
+            <button type="submit">Delete</button>
+          </form>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>

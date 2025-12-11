@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Find Gyms</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    #map {
+      width: 100%;
+      height: 400px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #eee;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Find Gyms</h1>
+
+  <form method="POST" action="/gyms">
+    <input type="text" name="postcode" value="<%= postcode || '' %>" placeholder="Enter postcode" required>
+    <button type="submit">Search</button>
+  </form>
+
+  <!--show map first-->
+  <div id="map"></div>
+
+  <!--show list after-->
+  <% if (gyms && gyms.length) { %>
+    <h2>Results for <%= postcode %></h2>
+    <ul>
+      <% gyms.forEach(function(g) { %>
+        <li>
+          <strong><%= g.name %></strong>
+        </li>
+      <% }); %>
+    </ul>
+  <% } else if (postcode) { %>
+    <p>No gyms found for <strong><%= postcode %></strong>.</p>
+  <% } %>
+
+  <script>
+    const center = JSON.parse('<%- JSON.stringify(center || null) %>');
+    const gymsData = JSON.parse('<%- JSON.stringify(gyms || []) %>');
+
+    function initMap() {
+      if (!center) return;
+
+      const map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: center.lat, lng: center.lng },
+        zoom: 14
+      });
+
+      gymsData.forEach(g => {
+        if (g.lat != null && g.lng != null) {
+          new google.maps.Marker({
+            map,
+            position: { lat: g.lat, lng: g.lng },
+            title: g.name
+          });
+        }
+      });
+    }
+  </script>
+
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=<%= key %>&callback=initMap"
+    async
+    defer>
+  </script>
+
+</body>
+</html>

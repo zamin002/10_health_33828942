@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet"  type="text/css" href="/main.css" />
+  <title>My Workouts</title>
+</head>
+<body>
+  <h1>My Workouts</h1>
+
+  <p><a href="/workouts/new">Log a new workout</a></p>
+
+  <% if (workouts.length == 0) { %>
+    <p>No workouts logged yet</p>
+  <% } else { %>
+    <ul>
+      <% workouts.forEach(function(w) { %>
+        <li>
+          <strong><%= w.workout_date %></strong> - <%= w.name %>
+        </li>
+      <% }) %>
+    </ul>
+  <% } %>
+</body>
+</html>

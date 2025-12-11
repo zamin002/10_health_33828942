@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Exercises</title>
+    <link rel="stylesheet"  type="text/css" href="/main.css" />
+</head>
+<body>
+
+<h1>Manage Exercises</h1>
+
+<a href="/exercises/by-muscle">Browse exercises by muscle group</a>
+<br>
+<a href="/">Back to home</a>
+
+<hr>
+
+<% if (errorMessage) { %>
+  <p style="color:red;"><%= errorMessage %></p>
+<% } %>
+
+<h2>Add a new exercise</h2>
+
+<form action="/exercises/manage" method="POST">
+    <label for="name">Exercise name:</label><br>
+    <input type="text" id="name" name="name" required>
+    <br><br>
+
+    <label for="muscle_group">Muscle group:</label><br>
+    <input type="text" id="muscle_group" name="muscle_group" required>
+    <br><br>
+
+    <button type="submit">Add exercise</button>
+</form>
+
+<hr>
+
+<h2>Current exercises</h2>
+
+<table border="1" cellpadding="5" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Exercise</th>
+            <th>Muscle group</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% if (exercises.length == 0) { %>
+            <tr>
+                <td colspan="2">No exercises in the database yet.</td>
+            </tr>
+        <% } else { %>
+            <% exercises.forEach(ex => { %>
+                <tr>
+                    <td><%= ex.name %></td>
+                    <td><%= ex.muscle_group %></td>
+                </tr>
+            <% }) %>
+        <% } %>
+    </tbody>
+</table>
+
+</body>
+</html>

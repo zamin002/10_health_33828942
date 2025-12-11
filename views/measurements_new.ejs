@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Measurement</title>
+    <link rel="stylesheet"  type="text/css" href="/main.css" />
+</head>
+<body>
+
+<h1>Add Body Measurement</h1>
+
+<form action="/measurements" method="POST">
+
+    <label for="measurement_date">Date:</label>
+    <input type="date" id="measurement_date" name="measurement_date" required>
+
+    <br><br>
+
+    <label for="bodyweight_kg">Bodyweight (kg):</label>
+    <input type="number" step="0.01" id="bodyweight_kg" name="bodyweight_kg" required>
+
+    <br><br>
+
+    <label for="waist_cm">Waist (cm):</label>
+    <input type="number" step="0.01" id="waist_cm" name="waist_cm">
+
+    <br><br>
+
+    <label for="notes">Notes:</label><br>
+    <textarea id="notes" name="notes" rows="3"></textarea>
+
+    <br><br>
+
+    <button type="submit">Save Measurement</button>
+</form>
+
+<br>
+<a href="/measurements">Back to measurements</a>
+
+</body>
+</html>

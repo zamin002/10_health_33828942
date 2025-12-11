@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exercises by Muscle Group</title>
+    <link rel="stylesheet"  type="text/css" href="/main.css" />
+</head>
+<body>
+
+<h1>Exercises by Muscle Group</h1>
+
+<form method="GET" action="/exercises/by-muscle">
+    <label for="muscle_group">Muscle group:</label>
+    <select id="muscle_group" name="muscle_group">
+        <option value="">-- Show all --</option>
+        <% muscleGroups.forEach(mg => { %>
+            <option
+                value="<%= mg.muscle_group %>"
+                <%= selectedMuscleGroup == mg.muscle_group ? "selected" : "" %>
+            >
+                <%= mg.muscle_group %>
+            </option>
+        <% }) %>
+    </select>
+
+    <button type="submit">Filter</button>
+</form>
+
+<hr>
+
+<table border="1" cellpadding="5" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Exercise</th>
+            <th>Muscle group</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% if (exercises.length ==0) { %>
+            <tr>
+                <td colspan="2">No exercises found.</td>
+            </tr>
+        <% } else { %>
+            <% exercises.forEach(ex => { %>
+                <tr>
+                    <td><%= ex.name %></td>
+                    <td><%= ex.muscle_group %></td>
+                </tr>
+            <% }) %>
+        <% } %>
+    </tbody>
+</table>
+
+<br>
+<a href="/">Back to home</a>
+
+</body>
+</html>
