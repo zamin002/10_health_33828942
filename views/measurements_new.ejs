@@ -8,7 +8,7 @@
 
 <h1>Add Body Measurement</h1>
 
-<form action="%=appData.basePath %>/measurements" method="POST">
+<form action="<%=appData.basePath%>/measurements" method="POST">
 
     <label for="measurement_date">Date:</label>
     <input type="date" id="measurement_date" name="measurement_date" required>
@@ -34,7 +34,7 @@
 </form>
 
 <br>
-<a href="/measurements">Back to measurements</a>
+<a href="<%= appData.basePath %>/measurements">Back to measurements</a>
 
 </body>
 </html>

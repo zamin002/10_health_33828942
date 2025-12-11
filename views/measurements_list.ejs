@@ -1,6 +1,6 @@
 <h1>Your measurements</h1>
 
-<a href="/measurements/new">Add new measurement</a>
+<a href="<%= appData.basePath %>/measurements/new">Add new measurement</a>
 
 <table>
   <thead>
@@ -20,8 +20,8 @@
         <td><%= m.waist_cm || '-' %></td>
         <td><%= m.notes || '' %></td>
         <td>
-          <a href="%= appData.basePath %>/measurements/<%= m.id %>/edit">Edit</a>
-          <form action="%= appData.basePath %>/measurements/<%= m.id %>/delete" method="POST" style="display:inline">
+          <a href="<%= appData.basePath %>/measurements/<%= m.id %>/edit">Edit</a>
+          <form action="<%= appData.basePath %>/measurements/<%= m.id %>/delete" method="POST" style="display:inline">
             <button type="submit">Delete</button>
           </form>
         </td>

@@ -8,7 +8,7 @@
 
 <h1>Edit Body Measurement</h1>
 
-<form action="/measurements/<%= m.id %>" method="POST">
+<form action="<%= appData.basePath %>/measurements/<%= m.id %>" method="POST">
 
     <label for="measurement_date">Date:</label>
     <input type="date" id="measurement_date" name="measurement_date" value="<%= m.measurement_date.toISOString().slice(0,10) %>" required>
@@ -34,13 +34,13 @@
 
 <br>
 
-<form action="%= appData.basePath %>/measurements/<%= m.id %>/delete" method="POST">
+<form action="<%=appData.basePath %>/measurements/<%= m.id %>/delete" method="POST">
     <button type="submit" style="color:red">Delete Measurement</button>
 </form>
 
 <br>
 
-<a href="/measurements">Back to measurements</a>
+<a href="<%= appData.basePath %>/measurements">Back to measurements</a>
 
 </body>
 </html>

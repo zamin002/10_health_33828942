@@ -7,7 +7,7 @@
 <body>
   <h1>Log a Workout</h1>
 
-  <form method="POST" action="%= appData.basePath %>/workouts">
+  <form method="POST" action="<%= appData.basePath %>/workouts">
     <p>
       <label>Date:</label>
       <input type="date" name="workout_date" required>
@@ -53,6 +53,6 @@
     <button type="submit">Save workout</button>
   </form>
 
-  <p><a href="/workouts">Back to my workouts</a></p>
+  <p><a href="<%= appData.basePath %>/workouts">Back to my workouts</a></p>
 </body>
 </html>
