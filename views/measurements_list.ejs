@@ -20,8 +20,8 @@
         <td><%= m.waist_cm || '-' %></td>
         <td><%= m.notes || '' %></td>
         <td>
-          <a href="/measurements/<%= m.id %>/edit">Edit</a>
-          <form action="/measurements/<%= m.id %>/delete" method="POST" style="display:inline">
+          <a href="%= appData.basePath %>/measurements/<%= m.id %>/edit">Edit</a>
+          <form action="%= appData.basePath %>/measurements/<%= m.id %>/delete" method="POST" style="display:inline">
             <button type="submit">Delete</button>
           </form>
         </td>

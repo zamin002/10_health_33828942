@@ -3,10 +3,11 @@ const express = require("express")
 const router = express.Router()
 const bcrypt = require('bcrypt')
 const { check, validationResult } = require('express-validator');
+const base = process.env.HEALTH_BASE_PATH || ''
 
 const redirectLogin = (req, res, next) => {
     if (!req.session.userId ) {
-      res.redirect('./login') // redirect to the login page
+      res.redirect(base + '/users/login') // redirect to the login page
     } else { 
         next (); // move to the next middleware function
     } 

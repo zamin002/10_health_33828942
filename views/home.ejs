@@ -7,15 +7,15 @@
 <body>
     <h1>Welcome to <%=appData.appName%> </h1>
     <nav>
-        <p><a href="/about">About</a></p>
-        <p><a href="/users/register">Register</a></p>
-        <p><a href="/users/login">Login</a></p>
-        <p><a href="/users/logout">Logout</a></p>
-        <p><a href="/gyms">Find a local gym</a></p>
-        <p><a href="/workouts">View your workouts</a></p>
-        <p><a href="/exercises/manage">Add exercise to database</a></p>
-        <p><a href="/exercises/by-muscle">Search for exercises by muscle</a></p>
-        <p><a href="/measurements">View your measurements</a></p>
+        <p><a href="<%= appData.basePath %>/about">About</a></p>
+        <p><a href="<%= appData.basePath %>/users/register">Register</a></p>
+        <p><a href="<%= appData.basePath %>/users/login">Login</a></p>
+        <p><a href="<%= appData.basePath %>/users/logout">Logout</a></p>
+        <p><a href="<%= appData.basePath %>/gyms">Find a local gym</a></p>
+        <p><a href="<%= appData.basePath %>/workouts">View your workouts</a></p>
+        <p><a href="<%= appData.basePath %>/exercises/manage">Add exercise to database</a></p>
+        <p><a href="<%= appData.basePath %>/exercises/by-muscle">Search for exercises by muscle</a></p>
+        <p><a href="<%= appData.basePath %>/measurements">View your measurements</a></p>
     </nav>
 </body>
 </html>

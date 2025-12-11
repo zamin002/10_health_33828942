@@ -6,7 +6,7 @@
   </head>
   <body>
     <h1>Login to <%=appData.appName%></h1>
-    <form method="POST" action="/users/loggedin">
+    <form method="POST" action="<%= appData.basePath %>/users/loggedin">
         <p>Username: <input id="username" type="text" name="username" required/></p>
         <p>Password: <input id="password" type="password" name="password" required/></p>
         <input type="submit" value="Login" />

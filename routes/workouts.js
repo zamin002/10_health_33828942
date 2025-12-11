@@ -1,10 +1,11 @@
 const express = require("express")
 const router = express.Router()
+const base = process.env.HEALTH_BASE_PATH || ''
 
 // redirect login same as users.js
 const redirectLogin = (req, res, next) => {
   if (!req.session || !req.session.userId) {
-    return res.redirect("../users/login")
+    return res.redirect(base+"/users/login")
   }
   next()
 }

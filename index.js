@@ -9,6 +9,7 @@ const expressSanitizer = require('express-sanitizer');
 
 // Create the express application object
 const app = express()
+const basePath = process.env.HEALTH_BASE_PATH || '';
 const port = 8000
 
 app.use(session({
@@ -33,7 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(expressSanitizer());
 
 // Define our application-specific data
-app.locals.appData = {appName: "FitLog"}
+app.locals.appData = {appName: "FitLog", basePath}
 
 // Define the database connection pool
 const db = mysql.createPool({

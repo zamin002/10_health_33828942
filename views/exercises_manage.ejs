@@ -20,7 +20,7 @@
 
 <h2>Add a new exercise</h2>
 
-<form action="/exercises/manage" method="POST">
+<form action="%= appData.basePath %>/exercises/manage" method="POST">
     <label for="name">Exercise name:</label><br>
     <input type="text" id="name" name="name" required>
     <br><br>
