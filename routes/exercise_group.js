@@ -111,7 +111,7 @@ router.post("/exercises/manage", redirectLogin, (req, res) => {
     }
 
     // after success page is reloaded
-    res.redirect("/exercises/manage")
+    res.redirect(base + "/exercises/manage")
   })
 })
 

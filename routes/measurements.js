@@ -43,7 +43,7 @@ router.post("/measurements", redirectLogin, (req, res) => {
         console.log(err)
         return res.send("Database error")
       }
-      res.redirect("/measurements")
+      res.redirect(base + "/measurements")
     }
   )
 })
@@ -79,7 +79,7 @@ router.post("/measurements/:id", redirectLogin, (req, res) => {
         console.log(err)
         return res.send("Database error")
       }
-      res.redirect("/measurements")
+      res.redirect(base + "/measurements")
     }
   )
 })
@@ -95,7 +95,7 @@ router.post("/measurements/:id/delete", redirectLogin, (req, res) => {
       console.log(err)
       return res.send("Database error")
     }
-    res.redirect("/measurements")
+    res.redirect(base + "/measurements")
   })
 })
 
